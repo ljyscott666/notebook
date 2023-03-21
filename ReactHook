@@ -1,0 +1,32 @@
+import React ,{useState,useEffect,createContext,useContext} from "react";
+
+const UserContext = createContext({})
+
+function Header() {
+  const userInfo = useContext(UserContext)
+//userInfo变量是useContext钩子的并且传入了UserContext的provider
+//后的返回值 
+
+  return(
+    
+  <div>
+    <p>{userInfo.name}</p>
+    
+ </div>
+  )
+  //用UserInfo打点调用即可,如果存在多个消费者都可以一起使用简化操作
+}
+
+function App ()  {
+
+//context钩子的内容    
+      return(       
+        <div>
+        <UserContext.Provider value={{"name":"syy","age":88}}>
+          <Header></Header>
+        </UserContext.Provider>
+        </div>
+      )
+}
+
+export default App 
